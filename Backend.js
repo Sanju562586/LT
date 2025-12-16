@@ -2,19 +2,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 
-mongoose.connect(
-  "mongodb+srv://sanjaykumardupati6_db_user:SanjayKumar%40126%23@lt.vjjea71.mongodb.net/test?retryWrites=true&w=majority&appName=LT",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => {
+    console.error("MongoDB Connection Error:", err);
+  });
+
 
 const problemSchema = new mongoose.Schema({
   name: String,
@@ -55,4 +55,5 @@ app.delete("/problems/:id", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
