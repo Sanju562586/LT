@@ -9,7 +9,7 @@ app.use(express.json());
 
 
 mongoose.connect(
-  "mongodb+srv://sanjaykumardupati6_db_user:Sanju%40126%23@lt.vjjea71.mongodb.net/test?retryWrites=true&w=majority&appName=LT",
+  "mongodb+srv://sanjaykumardupati6_db_user:SanjayKumar%40126%23@lt.vjjea71.mongodb.net/test?retryWrites=true&w=majority&appName=LT",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -55,3 +55,4 @@ app.delete("/problems/:id", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
