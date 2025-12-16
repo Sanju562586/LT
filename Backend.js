@@ -8,11 +8,14 @@ app.use(cors());
 app.use(express.json());
 
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => {
-    console.error("MongoDB Connection Error:", err);
-  });
+mongoose.connect(
+  "mongodb+srv://sanjaykumardupati6_db_user:SanjayKumar%40lt@vjjea71.mongodb.net/?appName=LT"
+)
+.then(() => console.log("MongoDB Connected"))
+.catch(err => {
+  console.error("MongoDB Connection Error:", err.message);
+});
+
 
 
 const problemSchema = new mongoose.Schema({
