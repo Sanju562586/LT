@@ -5,7 +5,6 @@ const ProblemForm = ({ onAdd }) => {
     const [formData, setFormData] = useState({
         name: '',
         link: '',
-        link: '',
         date: '',
         difficulty: ''
     });
