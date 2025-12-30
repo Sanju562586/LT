@@ -1,0 +1,18 @@
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = "frontend/build"
+
+[build.environment]
+  REACT_APP_API_URL = "https://lt-p1t6.onrender.com"
+
+# Disable secrets scanning for REACT_APP_API_URL since it's meant to be public
+[build.processing]
+  skip_processing = false
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.secrets_scanning]
+  enabled = true
+  omit_keys = ["REACT_APP_API_URL"]
